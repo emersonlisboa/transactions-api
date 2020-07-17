@@ -47,6 +47,8 @@ const create = async (req, res) => {
   }
 };
 
+
+
 const findAll = async (req, res) => {
   const name = req.query.name;
   const period = req.query.period;
@@ -59,9 +61,8 @@ const findAll = async (req, res) => {
       : {};
   }
   if (period) {
-    condition = name
-      ? { yearMonth: { $regex: new RegExp(name), $options: 'i' } }
-      : {};
+    condition = { yearMonth: period }
+    console.log(condition)
   }
 
   try {
