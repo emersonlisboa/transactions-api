@@ -50,30 +50,25 @@ const create = async (req, res) => {
 
 
 const findAll = async (req, res) => {
-  const name = req.query.name;
   const period = req.query.period;
-
   //condicao para o filtro no findAll
-  var condition = "";
-  if (name) {
-    condition = name
-      ? { description: { $regex: new RegExp(name), $options: 'i' } }
-      : {};
-  }
-  if (period) {
-    condition = { yearMonth: period }
-    console.log(condition)
-  }
 
-  try {
-    const data = await Transaction.find(condition)
-    res.send(data)
-    //   logger.info(`GET /transaction`);
-  } catch (error) {
-    res
-      .status(500)
-      .send({ message: error.message || 'Erro ao listar todos os documentos' });
-    //   logger.error(`GET /transaction - ${JSON.stringify(error.message)}`);
+  if (period) {
+
+    try {
+      const data = await Transaction.find({ yearMonth: period })
+      res.send(data)
+
+
+      //   logger.info(`GET /transaction`);
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: error.message || 'Erro ao listar todos os documentos' });
+      //   logger.error(`GET /transaction - ${JSON.stringify(error.message)}`);
+    }
+  } else {
+    res.status(400).send({ message: 'Por favor informar parametro de YYYY-MM para pesquisar!' })
   }
 };
 
