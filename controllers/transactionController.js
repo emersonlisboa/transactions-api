@@ -49,13 +49,20 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
   const name = req.query.name;
+  const period = req.query.period;
 
   //condicao para o filtro no findAll
-  var condition = name
-    ? { description: { $regex: new RegExp(name), $options: 'i' } }
-    : {};
-
-
+  var condition = "";
+  if (name) {
+    condition = name
+      ? { description: { $regex: new RegExp(name), $options: 'i' } }
+      : {};
+  }
+  if (period) {
+    condition = name
+      ? { yearMonth: { $regex: new RegExp(name), $options: 'i' } }
+      : {};
+  }
 
   try {
     const data = await Transaction.find(condition)
@@ -68,6 +75,8 @@ const findAll = async (req, res) => {
     //   logger.error(`GET /transaction - ${JSON.stringify(error.message)}`);
   }
 };
+
+
 
 const findOne = async (req, res) => {
   const id = req.params.id;
