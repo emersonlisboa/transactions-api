@@ -1,2 +1,2 @@
 DB_CONNECTION="mongodb+srv://emerson:2303erso@cluster0-tm2co.mongodb.net/DesafioFinalBootcampFullStack?retryWrites=true&w=majority"
-PORT=8088
+PORT=8090
