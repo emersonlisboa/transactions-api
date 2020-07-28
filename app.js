@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://transactions-app.vercel.app/',
+    origin: 'https://transactions-app.emersonlisboa.vercel.app/',
   })
 );
 
