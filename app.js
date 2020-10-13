@@ -27,7 +27,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://transactions-app-rkx8b94bp.vercel.app',
+    origin: 'https://transactions-app-gyt8f3mt3.vercel.app',
+   
     
   
   })
