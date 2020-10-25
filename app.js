@@ -39,7 +39,7 @@ app.use(transactionRouter);
 app.get('/api/', (req, res) => {
   res.send({
     message:
-      'Bem-vindo à API de lançamentos. Acesse /transaction e siga as orientações',
+      'Bem-vindo à API de lançamentos. Acesse /transaction e siga as orientações!',
   });
 });
 
